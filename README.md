@@ -14,20 +14,6 @@ Kelas : PBP B
 
 Flutter memiliki dua jenis widget utama: `StatelessWidget` dan `StatefulWidget`, yang berbeda dalam cara mereka menangani perubahan data atau keadaan aplikasi.
 
-#### StatelessWidget
-- `StatelessWidget` adalah widget yang **tidak memiliki state** atau **keadaan yang dapat berubah** setelah widget tersebut dibuat.
-- Tampilan atau konten `StatelessWidget` akan selalu tetap sama dan tidak akan mengalami perubahan dinamis dari waktu ke waktu.
-- Semua data yang ditampilkan oleh `StatelessWidget` harus diterima melalui konstruktor dan tidak dapat diubah setelah widget dibuat.
-
-#### StatefulWidget
-- `StatefulWidget` adalah widget yang memiliki **state** atau **keadaan yang dapat berubah seiring waktu**. Biasanya, perubahan ini terjadi sebagai respons terhadap interaksi pengguna atau perubahan data.
-- `StatefulWidget` terdiri dari dua bagian:
-  - **StatefulWidget**: Kerangka atau definisi dari widget itu sendiri.
-  - **State**: Bagian yang menyimpan data atau keadaan widget yang dapat berubah.
-- Setiap kali `State` diubah, widget akan membangun ulang tampilannya sesuai dengan keadaan terbaru.
-
-#### Perbedaan Utama antara StatelessWidget dan StatefulWidget
-
 | **StatelessWidget**                        | **StatefulWidget**                                |
 |--------------------------------------------|---------------------------------------------------|
 | Tidak memiliki state yang dapat diubah.    | Memiliki state yang dapat diubah.                 |
