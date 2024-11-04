@@ -6,24 +6,25 @@ Kelas : PBP B
 <details>
     <summary>Tugas 7</summary>
 
-1. Jelaskan apa yang dimaksud dengan stateless 
-## StatelessWidget vs StatefulWidget
+### 1. Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget.
+
+#### StatelessWidget vs StatefulWidget
 
 Flutter memiliki dua jenis widget utama: `StatelessWidget` dan `StatefulWidget`, yang berbeda dalam cara mereka menangani perubahan data atau keadaan aplikasi.
 
-### StatelessWidget
+#### StatelessWidget
 - `StatelessWidget` adalah widget yang **tidak memiliki state** atau **keadaan yang dapat berubah** setelah widget tersebut dibuat.
 - Tampilan atau konten `StatelessWidget` akan selalu tetap sama dan tidak akan mengalami perubahan dinamis dari waktu ke waktu.
 - Semua data yang ditampilkan oleh `StatelessWidget` harus diterima melalui konstruktor dan tidak dapat diubah setelah widget dibuat.
 
-### StatefulWidget
+#### StatefulWidget
 - `StatefulWidget` adalah widget yang memiliki **state** atau **keadaan yang dapat berubah seiring waktu**. Biasanya, perubahan ini terjadi sebagai respons terhadap interaksi pengguna atau perubahan data.
 - `StatefulWidget` terdiri dari dua bagian:
   - **StatefulWidget**: Kerangka atau definisi dari widget itu sendiri.
   - **State**: Bagian yang menyimpan data atau keadaan widget yang dapat berubah.
 - Setiap kali `State` diubah, widget akan membangun ulang tampilannya sesuai dengan keadaan terbaru.
 
-### Perbedaan Utama antara StatelessWidget dan StatefulWidget
+#### Perbedaan Utama antara StatelessWidget dan StatefulWidget
 
 | **StatelessWidget**                        | **StatefulWidget**                                |
 |--------------------------------------------|---------------------------------------------------|
@@ -35,69 +36,39 @@ Flutter memiliki dua jenis widget utama: `StatelessWidget` dan `StatefulWidget`,
 - Gunakan `StatelessWidget` untuk konten yang **tidak berubah**.
 - Gunakan `StatefulWidget` untuk konten yang **berubah** atau memerlukan pembaruan berdasarkan interaksi atau data baru.
 
-2.  Sebutkan widget apa saja yang kamu gunakan pada proyek ini dan jelaskan fungsinya.
+### 2. Sebutkan widget apa saja yang kamu gunakan pada proyek ini dan jelaskan fungsinya.
 
-## Widget yang Digunakan dan Fungsinya
+#### Widget yang Digunakan dan Fungsinya
 
-1. **Scaffold**
-   - Menyediakan struktur dasar halaman, termasuk `AppBar` dan `body`. Dalam proyek ini, `Scaffold` digunakan sebagai kerangka halaman utama.
+1. **Scaffold** - Menyediakan struktur dasar halaman, termasuk `AppBar` dan `body`. Digunakan sebagai kerangka halaman utama.
+2. **AppBar** - Menampilkan bagian atas halaman yang berisi judul aplikasi "Shopious". 
+3. **Padding** - Menambahkan jarak atau ruang di sekitar elemen dalam halaman.
+4. **Column** - Menyusun widget secara vertikal, digunakan untuk menampilkan `InfoCard` dan `GridView`.
+5. **Row** - Menyusun widget secara horizontal, digunakan untuk menampilkan tiga `InfoCard`.
+6. **InfoCard** - Widget khusus yang menampilkan informasi dalam bentuk kartu, seperti `NPM`, `Name`, dan `Class`.
+7. **SizedBox** - Memberikan jarak vertikal antara elemen.
+8. **Center** - Menyusun widget di tengah layar, digunakan untuk teks sambutan dan `GridView`.
+9. **Text** - Menampilkan teks pada layar.
+10. **GridView.count** - Menampilkan item dalam bentuk grid dengan jumlah kolom tetap.
+11. **ItemCard** - Widget khusus yang menampilkan ikon dan nama item dalam bentuk kartu.
+12. **Card** - Menyediakan tampilan kartu dengan bayangan.
+13. **Material** - Menyediakan properti visual untuk `InkWell`.
+14. **InkWell** - Memberikan efek klik pada widget dan menampilkan `SnackBar`.
+15. **Icon** - Menampilkan ikon sesuai nama item pada `ItemCard`.
+16. **SnackBar** - Menampilkan pesan singkat di bagian bawah layar.
 
-2. **AppBar**
-   - Menampilkan bagian atas halaman yang berisi judul aplikasi "Shopious". `AppBar` juga memberikan warna latar belakang dan gaya teks pada judul.
+### 3. Apa fungsi dari setState()? Jelaskan variabel apa saja yang dapat terdampak dengan fungsi tersebut.
 
-3. **Padding**
-   - Menambahkan jarak atau ruang di sekitar elemen dalam halaman. Digunakan di `body` untuk memberikan padding secara keseluruhan dan di dalam elemen tertentu.
+Fungsi `setState()` digunakan untuk memperbarui UI ketika ada perubahan data pada `StatefulWidget`. Variabel yang terdampak adalah semua variabel dalam kelas `State` yang nilainya diubah di dalam blok `setState()`.
 
-4. **Column**
-   - Menyusun widget secara vertikal. Pada proyek ini, `Column` digunakan untuk menampilkan beberapa widget dalam urutan vertikal di `body`, seperti `InfoCard` dan `GridView`.
-
-5. **Row**
-   - Menyusun widget secara horizontal. Digunakan untuk menampilkan tiga `InfoCard` (`NPM`, `Name`, dan `Class`) dalam satu baris.
-
-6. **InfoCard**
-   - Widget khusus yang menampilkan informasi dalam bentuk kartu dengan dua teks: `title` (judul) dan `content` (isi). Masing-masing `InfoCard` berisi data seperti `NPM`, `Name`, dan `Class`.
-
-7. **SizedBox**
-   - Digunakan untuk memberikan jarak vertikal antara elemen. Dalam proyek ini, `SizedBox` digunakan untuk membuat jarak antara `InfoCard` dan `GridView`.
-
-8. **Center**
-   - Menyusun widget di tengah-tengah layar. Digunakan untuk memusatkan teks sambutan dan `GridView`.
-
-9. **Text**
-   - Menampilkan teks pada layar. `Text` digunakan untuk menampilkan judul, nama item, serta informasi `NPM`, `Name`, dan `Class`.
-
-10. **GridView.count**
-    - Menampilkan item dalam bentuk grid dengan jumlah kolom tetap. Pada proyek ini, `GridView.count` digunakan untuk menampilkan `ItemCard` dengan tiga kolom.
-
-11. **ItemCard**
-    - Widget khusus yang menampilkan ikon dan nama item dalam bentuk kartu. `ItemCard` juga memiliki `InkWell` yang memungkinkan pengguna untuk melakukan aksi ketika kartu ditekan.
-
-12. **Card**
-    - Menyediakan tampilan kartu dengan bayangan dan batasan, digunakan dalam `InfoCard` untuk membungkus informasi.
-
-13. **Material**
-    - Menyediakan properti visual seperti warna dan efek, yang diperlukan untuk `InkWell`. Dalam `ItemCard`, `Material` digunakan sebagai latar belakang kartu dengan warna yang berbeda untuk setiap item.
-
-14. **InkWell**
-    - Memberikan efek klik pada widget dan menangani aksi ketika widget ditekan. Digunakan di `ItemCard` untuk memberikan efek klik pada item serta menampilkan `SnackBar`.
-
-15. **Icon**
-    - Menampilkan ikon sesuai dengan nama item pada `ItemCard`. Setiap `ItemCard` memiliki ikon berbeda berdasarkan fungsinya, seperti "Lihat Daftar Produk," "Tambah Produk," dan "Logout".
-
-16. **SnackBar**
-    - Menampilkan pesan singkat di bagian bawah layar. Pada `ItemCard`, `SnackBar` digunakan untuk memberi umpan balik saat pengguna menekan tombol pada kartu.
-
-3. Apa fungsi dari setState()? Jelaskan variabel apa saja yang dapat terdampak dengan fungsi tersebut.
-Fungsi `setState()` digunakan untuk memperbarui UI ketika ada perubahan data pada `StatefulWidget`. Variabel yang terdampak adalah semua variabel dalam kelas State yang nilainya diubah di dalam blok `setState()`.
-
-4. Jelaskan perbedaan antara const dengan final.
+### 4. Jelaskan perbedaan antara const dengan final.
 
 - `const`: Nilai tetap dan ditentukan saat **kompilasi**.
 - `final`: Nilai tetap setelah inisialisasi, ditentukan saat **runtime**.
 
-5. Jelaskan bagaimana cara kamu mengimplementasikan checklist-checklist di atas.
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist-checklist di atas.
 
-## Implementasi Checklist
+#### Implementasi Checklist
 
 1. **Membuat Proyek Flutter**
    - Membuat proyek Flutter baru dengan command:
