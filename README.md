@@ -227,3 +227,69 @@ Fungsi `setState()` digunakan untuk memperbarui UI ketika ada perubahan data pad
 
   Selain itu, ditambahkan drawer untuk mempermudah pengguna berpindah antar halaman, seperti dari halaman utama ke halaman form.
 </details>
+<details>
+<summary>Tugas 9</summary>
+
+#### Jelaskan mengapa kita perlu membuat model untuk melakukan pengambilan ataupun pengiriman data JSON? Apakah akan terjadi error jika kita tidak membuat model terlebih dahulu?
+
+Membuat model untuk pengambilan dan pengiriman data JSON sangat penting karena model berfungsi sebagai struktur atau blueprint yang mendefinisikan bagaimana data JSON dipetakan ke dalam objek di aplikasi. Dengan model, data JSON yang diterima dari API dapat diubah menjadi objek Dart yang mudah digunakan, dan data yang dikirim ke API dapat dipastikan sesuai dengan format yang diperlukan. Selain itu, model membantu validasi data dan memudahkan debugging karena struktur data yang digunakan menjadi lebih jelas.
+
+Jika kita tidak membuat model, kita tetap bisa menggunakan data JSON secara langsung dengan struktur map atau list. Namun, ini dapat membuat kode sulit dipahami dan dikelola. Tanpa model, tidak ada jaminan bahwa data yang diterima atau dikirim sesuai dengan struktur yang diharapkan, sehingga berisiko terjadi error runtime yang sulit dilacak. Model memberikan tipe data yang jelas, membantu mengurangi kesalahan, dan meningkatkan keandalan aplikasi.
+
+#### Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini
+Dalam tugas ini, library http berguna untuk:
+
+- Fungsi GET digunakan untuk mengirim permintaan HTTP GET ke server dan menerima respons JSON.
+- Fungsi POST digunakan untuk mengirim data dari aplikasi Flutter ke server melalui body request.
+- http menyediakan mekanisme untuk menangani status kode respons (200, 404, dll.) dan parsing data dari respons server.
+
+Dengan library http, aplikasi dapat mengirim data JSON ke server dan menerima respons JSON. Hal ini digunakan untuk fitur seperti login, register, pengambilan data, atau menambahkan data baru. Library ini menyederhanakan proses pengelolaan permintaan dan respons HTTP, sehingga pengembangan aplikasi menjadi lebih efisien.
+
+#### Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+CookieRequest menyimpan cookie yang diterima dari server setelah login, yang digunakan untuk autentikasi di permintaan selanjutnya. Cookie membantu menjaga sesi pengguna tetap aktif tanpa harus login ulang. CookieRequest memungkinkan pengiriman permintaan HTTP GET dan POST dengan menyertakan cookie secara otomatis. Dengan cookie, server dapat mengenali pengguna yang sedang terautentikasi.
+
+#### Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.
+1. **Input dari Pengguna:** Pengguna mengisi form di aplikasi Flutter, seperti menambahkan menu baru. Data ini divalidasi sebelum dikirim.
+2. **Pengiriman Data ke Server:** Data yang sudah divalidasi dikirim ke server Django menggunakan permintaan HTTP POST dalam format JSON.
+3. **Pemrosesan di Server:** Server menerima data, memvalidasinya, menyimpannya ke database, dan mengirim respons dalam format JSON.
+4. **Menampilkan Data di Flutter:** Aplikasi menerima respons dari server, memprosesnya, dan menampilkan data di UI, seperti memperbarui daftar menu.
+
+Dengan alur ini, data dapat dikirim dari input pengguna, diproses di server, dan ditampilkan kembali di aplikasi secara terintegrasi.
+
+#### Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+
+
+- **Register:**
+
+Pengguna mengisi form register di Flutter.
+Data akun dikirim ke server menggunakan permintaan POST.
+Server memproses data, menyimpannya ke database, dan mengirimkan respons.
+Flutter menampilkan pesan keberhasilan atau kegagalan, dan pengguna diarahkan ke halaman login jika sukses.
+
+
+- **Login:**
+
+Pengguna memasukkan kredensial login.
+Data dikirim ke server dengan POST.
+Server memverifikasi kredensial dan mengirimkan cookie sesi jika valid.
+Flutter menyimpan cookie sesi, dan pengguna diarahkan ke halaman utama.
+
+
+- **Logout:**
+
+Pengguna menekan tombol logout.
+Aplikasi mengirim permintaan logout ke server.
+Server menghapus sesi pengguna, dan Flutter menghapus cookie lokal.
+Mekanisme ini memastikan autentikasi yang aman dan pengalaman pengguna yang konsisten.
+
+#### Implementasi Checklist
+1. Saya install PIP yang sudah disediakan oleh kakak Asdos dan mengikuti persiapan yang diarahkan di tutorial seperti mengubah beberapa hal di main.dart
+2. Saya membuat sebuah file baru bernama `register.dart` di direktori `shopious_mobile/lib/screens` untuk halaman registrasi akun.
+3. Saya mengintegrasikan sistem autentikasi Django dengan proyek Flutter menggunakan package `pbp_django_auth` dan `provider`.
+4. Saya membuat halaman login pada proyek tugas Flutter di file `login.dart` di direktori `shopious_mobile/lib/screens`.
+5. Saya membuat model kustom sesuai dengan proyek aplikasi Django di file `add_item.dart` di direktori `shopious_mobile/lib/models`.
+6. Model itu didapatkan menggunakan quicktype dengan menggunakan json
+7. Saya membuat halaman yang berisi daftar semua item yang terdapat pada endpoint JSON di Django yang telah saya deploy di file `list_additem.dart` di direktori `shopious_mobile/lib/screens`.
+7. Saya membuat halaman detail untuk setiap item yang terdapat pada halaman daftar item di file `product_detail.dart` di direktori `shopious_mobile/lib/screens`.
+8. Saya melakukan filter pada halaman daftar item dengan hanya menampilkan item yang terasosiasi dengan pengguna yang login di file `list_additem.dart`.
+</details>
